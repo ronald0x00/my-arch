@@ -77,3 +77,8 @@ for i in groups:
             ],
         )
     )
+    keys.extend(
+        [
+            Key(["control"], "1", lazy.group["scratchpad"].dropdown_toggle("term")),
+        ]
+    )
