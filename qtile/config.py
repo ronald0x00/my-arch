@@ -32,15 +32,13 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
-# from libqtile.utils import guess_terminal
 
 from color import colors
 from font import font
 from layouts import custom_layouts, floating
-from bar import my_bar
+from bar import init_screens
 
 mod = "mod4"
-# terminal = guess_terminal()
 terminal = "kitty"
 
 float_types = ["dialog"]
@@ -237,9 +235,7 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(wallpaper="~/bepop.jpg", wallpaper_mode="fill", top=my_bar()),
-]
+screens = init_screens()
 
 # Drag floating layouts.
 mouse = [
