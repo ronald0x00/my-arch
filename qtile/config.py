@@ -5,6 +5,7 @@ import subprocess
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from groups import groups
 from keys import keys, mod
 from font import font
 from layouts import custom_layouts, floating
@@ -64,30 +65,6 @@ def dialogs(window):
     ):
         window.floating = True
 
-
-# groups = [ Group(f"{i+1}", label="♥") for i in range(5)]
-groups = [Group(f"{i+1}", label="󰱺") for i in range(6)]
-
-
-for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-        ]
-    )
 
 layouts = custom_layouts
 floating_layout = floating
