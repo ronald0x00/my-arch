@@ -19,7 +19,7 @@ WIDTH = 34
 
 
 def init_widgets_list():
-    widgets_list = [
+    return [
         widget.Spacer(
             length=5,
             is_spacer=True,
@@ -84,7 +84,6 @@ def init_widgets_list():
             background=colors["blue"],
         ),
     ]
-    return widgets_list
 
 
 def init_screens():
