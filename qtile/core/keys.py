@@ -1,5 +1,6 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
+from utils.window import move_left, move_right, move_down, move_up, normalize_window
 
 mod = "mod4"
 terminal = "kitty"
@@ -11,10 +12,30 @@ keys = [
         ([mod], "l", lazy.layout.right()),
         ([mod], "j", lazy.layout.down()),
         ([mod], "k", lazy.layout.up()),
-        (["shift"], "Left", lazy.layout.shuffle_left()),
-        (["shift"], "Right", lazy.layout.shuffle_right()),
-        (["shift"], "Up", lazy.layout.shuffle_up()),
-        (["shift"], "Down", lazy.layout.shuffle_down()),
+        (
+            ["shift"],
+            "Left",
+            lazy.layout.shuffle_left().when(layout=["monadtall", "monawide", "bsp"]),
+            lazy.function(move_left).when(layout=["floating"]),
+        ),
+        (
+            ["shift"],
+            "Right",
+            lazy.layout.shuffle_right().when(layout=["monadtall", "monawide", "bsp"]),
+            lazy.function(move_right).when(layout=["floating"]),
+        ),
+        (
+            ["shift"],
+            "Down",
+            lazy.layout.shuffle_down().when(layout=["monadtall", "monawide", "bsp"]),
+            lazy.function(move_down).when(layout=["floating"]),
+        ),
+        (
+            ["shift"],
+            "Up",
+            lazy.layout.shuffle_up().when(layout=["monadtall", "monawide", "bsp"]),
+            lazy.function(move_up).when(layout=["floating"]),
+        ),
         (
             ["control"],
             "Up",
@@ -29,6 +50,12 @@ keys = [
         ),
         (["control"], "Left", lazy.layout.grow_left().when(layout=["bsp"])),
         (["control"], "Right", lazy.layout.grow_right().when(layout=["bsp"])),
+        (
+            [mod],
+            "n",
+            lazy.layout.normalize().when(layout=["monadtall", "monawide", "bsp"]),
+            lazy.function(normalize_window).when(layout=["floating"]),
+        ),
         ([], "Print", lazy.spawn("xfce4-screenshooter")),
         ([mod], "t", lazy.spawn(terminal)),
         ([], "F11", lazy.window.toggle_fullscreen()),
