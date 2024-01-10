@@ -1,6 +1,16 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
-from utils.window import move_left, move_right, move_down, move_up, normalize_window
+from utils.window import (
+    move_left,
+    move_right,
+    move_down,
+    move_up,
+    normalize_window,
+    resize_left,
+    resize_right,
+    resize_down,
+    resize_up,
+)
 
 mod = "mod4"
 terminal = "kitty"
@@ -41,15 +51,27 @@ keys = [
             "Up",
             lazy.layout.grow().when(layout=["monadtall", "monawide"]),
             lazy.layout.grow_up().when(layout=["bsp"]),
+            lazy.function(resize_up).when(layout=["floating"]),
         ),
         (
             ["control"],
             "Down",
             lazy.layout.shrink().when(layout=["monadtall", "monawide"]),
             lazy.layout.grow_down().when(layout=["bsp"]),
+            lazy.function(resize_down).when(layout=["floating"]),
         ),
-        (["control"], "Left", lazy.layout.grow_left().when(layout=["bsp"])),
-        (["control"], "Right", lazy.layout.grow_right().when(layout=["bsp"])),
+        (
+            ["control"],
+            "Left",
+            lazy.layout.grow_left().when(layout=["bsp"]),
+            lazy.function(resize_left).when(layout=["floating"]),
+        ),
+        (
+            ["control"],
+            "Right",
+            lazy.layout.grow_right().when(layout=["bsp"]),
+            lazy.function(resize_right).when(layout=["floating"]),
+        ),
         (
             [mod],
             "n",
