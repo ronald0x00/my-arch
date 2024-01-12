@@ -18,3 +18,10 @@ def move(qtile, direction):
 def resize(qtile, direction):
     if qtile.current_window.floating:
         qtile.current_window.cmd_resize_floating(*default_directions[direction])
+
+
+@lazy.window.function
+def normalize(window):
+    if window.floating:
+        window.cmd_set_size_floating(int(1920 * 0.7), int(1080 * 0.7))
+        window.cmd_center()
