@@ -1,6 +1,6 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
-from utils.window import resize
+from utils.window import resize, move
 
 mod = "mod4"
 terminal = "kitty"
@@ -16,21 +16,25 @@ keys = [
             ["shift"],
             "Left",
             lazy.layout.shuffle_left().when(layout=["monadtall", "monadwide", "bsp"]),
+            move("left"),
         ),
         (
             ["shift"],
             "Right",
             lazy.layout.shuffle_right().when(layout=["monadtall", "monadwide", "bsp"]),
+            move("right"),
         ),
         (
             ["shift"],
             "Down",
             lazy.layout.shuffle_down().when(layout=["monadtall", "monadwide", "bsp"]),
+            move("down"),
         ),
         (
             ["shift"],
             "Up",
             lazy.layout.shuffle_up().when(layout=["monadtall", "monadwide", "bsp"]),
+            move("up"),
         ),
         (
             ["control"],
