@@ -1,16 +1,6 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
-from utils.window import (
-    move_left,
-    move_right,
-    move_down,
-    move_up,
-    normalize_window,
-    resize_left,
-    resize_right,
-    resize_down,
-    resize_up,
-)
+from utils.window import resize
 
 mod = "mod4"
 terminal = "kitty"
@@ -25,58 +15,53 @@ keys = [
         (
             ["shift"],
             "Left",
-            lazy.layout.shuffle_left().when(layout=["monadtall", "monawide", "bsp"]),
-            lazy.function(move_left).when(layout=["floating"]),
+            lazy.layout.shuffle_left().when(layout=["monadtall", "monadwide", "bsp"]),
         ),
         (
             ["shift"],
             "Right",
-            lazy.layout.shuffle_right().when(layout=["monadtall", "monawide", "bsp"]),
-            lazy.function(move_right).when(layout=["floating"]),
+            lazy.layout.shuffle_right().when(layout=["monadtall", "monadwide", "bsp"]),
         ),
         (
             ["shift"],
             "Down",
-            lazy.layout.shuffle_down().when(layout=["monadtall", "monawide", "bsp"]),
-            lazy.function(move_down).when(layout=["floating"]),
+            lazy.layout.shuffle_down().when(layout=["monadtall", "monadwide", "bsp"]),
         ),
         (
             ["shift"],
             "Up",
-            lazy.layout.shuffle_up().when(layout=["monadtall", "monawide", "bsp"]),
-            lazy.function(move_up).when(layout=["floating"]),
+            lazy.layout.shuffle_up().when(layout=["monadtall", "monadwide", "bsp"]),
         ),
         (
             ["control"],
             "Up",
-            lazy.layout.grow().when(layout=["monadtall", "monawide"]),
             lazy.layout.grow_up().when(layout=["bsp"]),
-            lazy.function(resize_up).when(layout=["floating"]),
+            lazy.layout.grow().when(layout=["monadtall", "monadwide"]),
+            resize("up"),
         ),
         (
             ["control"],
             "Down",
-            lazy.layout.shrink().when(layout=["monadtall", "monawide"]),
             lazy.layout.grow_down().when(layout=["bsp"]),
-            lazy.function(resize_down).when(layout=["floating"]),
+            lazy.layout.shrink().when(layout=["monadtall", "monadwide"]),
+            resize("down"),
         ),
         (
             ["control"],
             "Left",
             lazy.layout.grow_left().when(layout=["bsp"]),
-            lazy.function(resize_left).when(layout=["floating"]),
+            resize("left"),
         ),
         (
             ["control"],
             "Right",
             lazy.layout.grow_right().when(layout=["bsp"]),
-            lazy.function(resize_right).when(layout=["floating"]),
+            resize("right"),
         ),
         (
             [mod],
             "n",
-            lazy.layout.normalize().when(layout=["monadtall", "monawide", "bsp"]),
-            lazy.function(normalize_window).when(layout=["floating"]),
+            lazy.layout.normalize().when(layout=["monadtall", "monadwide", "bsp"]),
         ),
         ([], "Print", lazy.spawn("xfce4-screenshooter")),
         ([mod], "t", lazy.spawn(terminal)),
