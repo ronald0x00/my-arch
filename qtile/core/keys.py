@@ -1,6 +1,6 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
-from utils.window import resize, move
+from utils.window import resize, move, normalize
 
 mod = "mod4"
 terminal = "kitty"
@@ -66,6 +66,7 @@ keys = [
             [mod],
             "n",
             lazy.layout.normalize().when(layout=["monadtall", "monadwide", "bsp"]),
+            normalize(),
         ),
         ([], "Print", lazy.spawn("xfce4-screenshooter")),
         ([mod], "t", lazy.spawn(terminal)),
