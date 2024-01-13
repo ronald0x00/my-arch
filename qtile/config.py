@@ -5,6 +5,7 @@ from core import (  # noqa: F401
     hooks,
     keys,
     layouts,
+    floating_layout,
     mouse,
     screens,
     widget_defaults,

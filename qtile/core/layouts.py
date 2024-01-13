@@ -1,4 +1,5 @@
 from libqtile import layout
+from libqtile.config import Match
 from utils.color import colors
 
 BORDER_WIDTH = 2
@@ -8,24 +9,6 @@ WINDOW_MARGIN = MARGIN
 SINGLE_BORDER_WIDTH = BORDER_WIDTH
 ACTIVE_COLOR = colors["magenta"]
 INACTIVE_COLOR = colors["pink"]
-
-floating = layout.Floating(
-    border_focus=ACTIVE_COLOR, border_normal=INACTIVE_COLOR, border_width=2
-)
-tile = layout.Tile(
-    border_width=BORDER_WIDTH,
-    margin=WINDOW_MARGIN,
-    margin_on_single=not SMART_GAPS,
-    border_focus=ACTIVE_COLOR,
-    border_normal=INACTIVE_COLOR,
-    expand=True,
-    border_on_single=True,
-    ratio=0.5,
-    ratio_increment=0.01,
-    shift_windows=True,
-    master_length=1,
-    add_after_last=True,
-)
 
 bsp = layout.Bsp(
     border_focus=ACTIVE_COLOR,
@@ -51,4 +34,10 @@ monadtall = layout.MonadTall(
     single_margin=not SMART_GAPS,
     single_border_width=SINGLE_BORDER_WIDTH,
 )
-layouts = [tile, bsp, monadwide, monadtall]
+floating = layout.Floating(
+    border_focus=colors["fg_gutter"], border_normal=colors["bg"], border_width=2
+)
+
+
+layouts = [bsp, monadtall, monadwide]
+floating_layout = floating
