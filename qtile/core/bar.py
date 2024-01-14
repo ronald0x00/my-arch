@@ -56,10 +56,10 @@ spacer_minimal = [
 
 spacer_power = [
     widget.Spacer(
-        length=4,
+        length=5,
         is_spacer=True,
         inherit=True,
-        use_separator=True,
+        use_separator=False,
         background=colors["red"],
     )
 ]
@@ -99,10 +99,10 @@ groups = [
 
 logo = [
     widget.TextBox(
-        padding=6,
+        padding=-1,
         font=font["clear"]["family"],
         fontsize=font["clear"]["fontsize"],
-        text="󰨑",
+        text=" 󰌠 ",
         background=colors["magenta"],
         foreground=colors["fg"],
         **powerline,
@@ -111,10 +111,10 @@ logo = [
 
 power = [
     widget.TextBox(
-        padding=0,
+        padding=-1,
         font=font["clear"]["family"],
         fontsize=font["clear"]["fontsize"],
-        text="󰿄",
+        text="  󰀥",
         background=colors["red"],
         foreground=colors["fg"],
         **powerline,
@@ -132,7 +132,7 @@ window = [
         font=windowname,
         fontsize=16,
         format="{name}",
-        max_chars=60,
+        max_chars=20,
         widht=CALCULATED,
         background=colors["fg_gutter"],
         center_aligned=True,
@@ -143,7 +143,7 @@ window = [
 clock = [
     widget.Clock(
         **fontinfo,
-        format="%I:%M %p ",
+        format="%H:%M",
         background=colors["blue"],
         **powerline,
     ),
