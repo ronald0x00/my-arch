@@ -21,59 +21,6 @@ powerline = {
     "decorations": [PowerLineDecoration(path="forward_slash")],
 }
 
-groups = [
-    widget.GroupBox(
-        font=font["clear"]["family"],
-        padding=font["clear"]["padding"],
-        fontsize=font["clear"]["fontsize"],
-        foreground=colors["cyan"],
-        highlight_method="text",
-        block_highlight_text_color=colors["white"],
-        active=colors["magenta"],
-        inactive=colors["cyan"],
-        rounded=False,
-        highlight_color=[colors["fg"], colors["yellow"]],
-        urgent_alert_method="line",
-        urgent_text=colors["red"],
-        urgent_border=colors["red"],
-        disable_drag=True,
-        use_mouse_wheel=False,
-        hide_unused=False,
-        spacing=5,
-        this_current_screen_border=colors["pink"],
-        **powerline,
-    )
-]
-
-spacer_logo = [
-    widget.Spacer(
-        length=5,
-        is_spacer=True,
-        inherit=True,
-        use_separator=False,
-        background=colors["magenta"],
-    )
-]
-
-logo = [
-    widget.TextBox(
-        padding=6,
-        font=font["clear"]["family"],
-        fontsize=font["clear"]["fontsize"],
-        text="󰨑",
-        background=colors["magenta"],
-        foreground=colors["fg"],
-        **powerline,
-    ),
-]
-
-layout = [
-    widget.CurrentLayout(
-        **fontinfo,
-        background=colors["pink"],
-        **powerline,
-    ),
-]
 
 center_spacer = [
     widget.Spacer(
@@ -105,6 +52,80 @@ spacer_minimal = [
         use_separator=True,
         background=colors["fg_gutter"],
     )
+]
+
+spacer_power = [
+    widget.Spacer(
+        length=4,
+        is_spacer=True,
+        inherit=True,
+        use_separator=True,
+        background=colors["red"],
+    )
+]
+
+spacer_logo = [
+    widget.Spacer(
+        length=5,
+        is_spacer=True,
+        inherit=True,
+        use_separator=False,
+        background=colors["magenta"],
+    )
+]
+groups = [
+    widget.GroupBox(
+        font=font["clear"]["family"],
+        padding=font["clear"]["padding"],
+        fontsize=font["clear"]["fontsize"],
+        foreground=colors["cyan"],
+        highlight_method="text",
+        block_highlight_text_color=colors["white"],
+        active=colors["magenta"],
+        inactive=colors["cyan"],
+        rounded=False,
+        highlight_color=[colors["fg"], colors["yellow"]],
+        urgent_alert_method="line",
+        urgent_text=colors["red"],
+        urgent_border=colors["red"],
+        disable_drag=True,
+        use_mouse_wheel=False,
+        hide_unused=False,
+        spacing=5,
+        this_current_screen_border=colors["pink"],
+        **powerline,
+    )
+]
+
+logo = [
+    widget.TextBox(
+        padding=6,
+        font=font["clear"]["family"],
+        fontsize=font["clear"]["fontsize"],
+        text="󰨑",
+        background=colors["magenta"],
+        foreground=colors["fg"],
+        **powerline,
+    ),
+]
+
+power = [
+    widget.TextBox(
+        padding=0,
+        font=font["clear"]["family"],
+        fontsize=font["clear"]["fontsize"],
+        text="󰿄",
+        background=colors["red"],
+        foreground=colors["fg"],
+        **powerline,
+    ),
+]
+layout = [
+    widget.CurrentLayout(
+        **fontinfo,
+        background=colors["pink"],
+        **powerline,
+    ),
 ]
 window = [
     widget.WindowName(
@@ -139,6 +160,8 @@ widgets = lambda: [
     *center_spacer,
     *clock,
     *large_spacer,
+    *power,
+    *spacer_power,
 ]
 
 

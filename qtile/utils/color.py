@@ -3,7 +3,7 @@ quirky = {
     "fg": "#e0def4",
     "fg_gutter": "#26233a",
     "black": "#191724",
-    "red": "#eb6f92",
+    "red": "#82032d",
     "green": "#31748f",
     "yellow": "#f6c177",
     "blue": "#5E4C86",
