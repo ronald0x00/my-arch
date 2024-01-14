@@ -17,6 +17,9 @@ DEFAULT_FG = colors["fg"]
 DEFAULT_BG = colors["bg"]
 WIDTH = 34
 
+powerline = {
+    "decorations": [PowerLineDecoration(path="forward_slash")],
+}
 
 groups = [
     widget.GroupBox(
@@ -38,11 +41,11 @@ groups = [
         hide_unused=False,
         spacing=5,
         this_current_screen_border=colors["pink"],
-        decorations=[PowerLineDecoration(path="forward_slash")],
+        **powerline,
     )
 ]
 
-spacer = [
+spacer_logo = [
     widget.Spacer(
         length=5,
         is_spacer=True,
@@ -51,6 +54,7 @@ spacer = [
         background=colors["magenta"],
     )
 ]
+
 logo = [
     widget.TextBox(
         padding=6,
@@ -59,7 +63,7 @@ logo = [
         text="󰨑",
         background=colors["magenta"],
         foreground=colors["fg"],
-        decorations=[PowerLineDecoration(path="forward_slash")],
+        **powerline,
     ),
 ]
 
@@ -67,18 +71,40 @@ layout = [
     widget.CurrentLayout(
         **fontinfo,
         background=colors["pink"],
-        decorations=[PowerLineDecoration(path="forward_slash")],
+        **powerline,
     ),
 ]
 
-center_space = [
+center_spacer = [
     widget.Spacer(
         length=bar.STRETCH,
         is_spacer=True,
         inheirit=True,
         use_separator=False,
         background=colors["fg_gutter"],
+        **powerline,
     ),
+]
+
+large_spacer = [
+    widget.Spacer(
+        length=bar.STRETCH,
+        is_spacer=True,
+        inheirit=True,
+        use_separator=False,
+        background=colors["fg_gutter"],
+        **powerline,
+    ),
+]
+
+spacer_minimal = [
+    widget.Spacer(
+        length=10,
+        is_spacer=True,
+        inherit=True,
+        use_separator=True,
+        background=colors["fg_gutter"],
+    )
 ]
 window = [
     widget.WindowName(
@@ -89,7 +115,7 @@ window = [
         widht=CALCULATED,
         background=colors["fg_gutter"],
         center_aligned=True,
-        decorations=[PowerLineDecoration(path="forward_slash")],
+        **powerline,
     ),
 ]
 
@@ -98,18 +124,21 @@ clock = [
         **fontinfo,
         format="%I:%M %p ",
         background=colors["blue"],
+        **powerline,
     ),
 ]
 
 
 widgets = lambda: [
-    *spacer,
+    *spacer_logo,
     *logo,
     *groups,
     *layout,
-    *center_space,
+    *spacer_minimal,
     *window,
+    *center_spacer,
     *clock,
+    *large_spacer,
 ]
 
 
