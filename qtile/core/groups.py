@@ -34,6 +34,6 @@ groups.append(
 
 keys.extend(
     [
-        Key(["control"], "1", lazy.group["scratchpad"].dropdown_toggle("term")),
+        Key(["control"], "1", lazy.group["scratchpad"].dropdown_toggle("term"), desc="A util scratchpad to terminal"),
     ]
 )
