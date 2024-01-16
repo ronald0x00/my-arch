@@ -4,13 +4,13 @@ symbols = {
     "padding": 0,
 }
 
-meslo = {
-    "family": "MesloLGLDZ Nerd Font Mono",
+iosevka = {
+    "family": "Iosevka Nerd Font",
     "fontsize": 16,
     "padding": 0,
 }
 
 
-all_fonts = {"clear": symbols, "secondary": meslo}
+all_fonts = {"clear": symbols, "secondary": iosevka}
 font = all_fonts
-windowname = "MesloLGLDZ Nerd Font Mono Italic"
+windowname = "Iosevka Nerd Font Mono Italic"
