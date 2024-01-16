@@ -158,7 +158,16 @@ box = [
         text_open="󰎟",
         text_closed="󰌼",
         **powerline,
-        widgets=[],
+        widgets=[
+            widget.Memory(
+                **fontinfo,
+                fmt="󰍔 {}",
+                measure_mem="G",
+                background=colors["green"],
+                foreground=colors["fg"],
+                **powerline,
+            ),
+        ],
     ),
 ]
 
