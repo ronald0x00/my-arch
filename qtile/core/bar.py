@@ -150,6 +150,18 @@ clock = [
     ),
 ]
 
+box = [
+    widget.WidgetBox(
+        font=font["clear"]["family"],
+        fontsize=font["clear"]["fontsize"],
+        background=colors["black"],
+        text_open="󰎟",
+        text_closed="󰌼",
+        **powerline,
+        widgets=[],
+    ),
+]
+
 
 widgets = lambda: [
     *spacer_logo,
@@ -161,6 +173,7 @@ widgets = lambda: [
     *center_spacer,
     *clock,
     *large_spacer,
+    *box,
     *power,
     *spacer_power,
 ]
