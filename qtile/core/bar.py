@@ -167,6 +167,13 @@ box = [
                 foreground=colors["fg"],
                 **powerline,
             ),
+            widget.CPU(
+                **fontinfo,
+                fmt="󰍛 {}",
+                background=colors["blue"],
+                foreground=colors["fg"],
+                **powerline,
+            ),
         ],
     ),
 ]
