@@ -124,6 +124,7 @@ layout = [
     widget.CurrentLayout(
         **fontinfo,
         background=colors["pink"],
+        fmt="󰕘  {}",
         **powerline,
     ),
 ]
@@ -143,7 +144,7 @@ window = [
 clock = [
     widget.Clock(
         **fontinfo,
-        format="%H:%M",
+        format="%d %B | %H:%M",
         background=colors["blue"],
         **powerline,
     ),
