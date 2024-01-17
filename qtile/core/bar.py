@@ -6,6 +6,7 @@ from utils.font import font, windowname
 from qtile_extras.widget.decorations import PowerLineDecoration
 from libqtile.config import Screen
 from libqtile.bar import CALCULATED
+import subprocess
 
 fontinfo = dict(
     font=font["secondary"]["family"],
@@ -179,6 +180,16 @@ box = [
                 display_format="{updates} updates",
                 no_update_string="No updates",
                 background=colors["black"],
+                foreground=colors["fg"],
+                **powerline,
+            ),
+            widget.GenPollText(
+                **fontinfo,
+                update_interval=1,
+                func=lambda: subprocess.check_output(
+                    "$HOME/.config/qtile/scripts/vpn.sh", shell=True
+                ).decode("utf-8"),
+                background=colors["pink"],
                 foreground=colors["fg"],
                 **powerline,
             ),
