@@ -166,6 +166,22 @@ box = [
                 theme_path="rose-pine-gtk",
                 **powerline,
             ),
+            widget.TextBox(
+                **fontinfo,
+                background=colors["black"],
+                foreground=colors["fg"],
+                text="󰬬",
+                **powerline,
+            ),
+            widget.CheckUpdates(
+                **fontinfo,
+                distro="Arch",
+                display_format="{updates} updates",
+                no_update_string="No updates",
+                background=colors["black"],
+                foreground=colors["fg"],
+                **powerline,
+            ),
         ],
     ),
 ]
