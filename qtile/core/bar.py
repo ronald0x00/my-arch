@@ -154,33 +154,16 @@ box = [
     widget.WidgetBox(
         font=font["clear"]["family"],
         fontsize=font["clear"]["fontsize"],
-        background=colors["black"],
+        background=colors["fg_gutter"],
         text_open="󰎟",
         text_closed="󰌼",
         **powerline,
         widgets=[
-            widget.Memory(
+            widget.Systray(
                 **fontinfo,
-                fmt="󰍔 {}",
-                measure_mem="G",
-                background=colors["green"],
+                background=colors["cyan"],
                 foreground=colors["fg"],
-                **powerline,
-            ),
-            widget.CPU(
-                **fontinfo,
-                fmt="󰍛 {}",
-                background=colors["blue"],
-                foreground=colors["fg"],
-                **powerline,
-            ),
-            
-            widget.Net(
-                **fontinfo,
-                format="󰚷 {up:6.2f} | {down:6.2f} 󰚶",
-                background=colors["magenta"],
-                foreground=colors["fg"],
-                prefix="k",
+                theme_path="rose-pine-gtk",
                 **powerline,
             ),
         ],
