@@ -174,6 +174,15 @@ box = [
                 foreground=colors["fg"],
                 **powerline,
             ),
+            
+            widget.Net(
+                **fontinfo,
+                format="󰚷 {up:6.2f} | {down:6.2f} 󰚶",
+                background=colors["magenta"],
+                foreground=colors["fg"],
+                prefix="k",
+                **powerline,
+            ),
         ],
     ),
 ]
