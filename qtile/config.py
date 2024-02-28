@@ -1,6 +1,5 @@
 from core import (  # noqa: F401
     extension_defaults,
-    floating,
     groups,
     hooks,
     keys,
